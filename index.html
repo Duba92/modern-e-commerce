@@ -3,15 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern E-Commerce</title>
+    <title>ModernStore - Premium E-commerce</title>
     <link rel="stylesheet" href="assets/css/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Hero image styling */
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 2rem;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+            animation: floatImage 3s ease-in-out infinite;
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+        
+        @keyframes floatImage {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .hero-placeholder {
+            text-align: center;
+            position: relative;
+        }
+        
+        /* Optional: Add a subtle glow effect */
+        .hero-image img {
+            position: relative;
+        }
+        
+        .hero-image img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: 0 0 50px rgba(102,126,234,0.4);
+            border-radius: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-image img {
+                max-width: 280px;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Your Gemini Image -->
     <section class="hero">
         <div class="hero-content">
             <span class="hero-badge">Summer 2025 Collection</span>
@@ -24,7 +77,10 @@
         </div>
         <div class="hero-image">
             <div class="hero-placeholder">
-                <i class="fas fa-shopping-bag"></i>
+                <!-- Your Gemini Generated Image -->
+                <img src="Gemini_Generated_Image_4yl0cf4yl0cf4yl0.png" 
+                     alt="Dubai E-Commerce Web Development" 
+                     onerror="this.src='https://placehold.co/500x500/667eea/white?text=Modern+E-Commerce'">
             </div>
         </div>
     </section>
@@ -57,7 +113,7 @@
         </div>
     </section>
 
-    <!-- Categories -->
+    <!-- Featured Categories -->
     <section class="categories">
         <div class="container">
             <div class="section-header">
@@ -66,22 +122,30 @@
             </div>
             <div class="categories-grid">
                 <div class="category-card">
-                    <div class="category-icon"><i class="fas fa-tshirt"></i></div>
+                    <div class="category-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
                     <h3>Men's Fashion</h3>
                     <a href="shop.html?category=men">Shop Now →</a>
                 </div>
                 <div class="category-card">
-                    <div class="category-icon"><i class="fas fa-female"></i></div>
+                    <div class="category-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
                     <h3>Women's Fashion</h3>
                     <a href="shop.html?category=women">Shop Now →</a>
                 </div>
                 <div class="category-card">
-                    <div class="category-icon"><i class="fas fa-shoe-prints"></i></div>
+                    <div class="category-icon">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
                     <h3>Footwear</h3>
                     <a href="shop.html?category=shoes">Shop Now →</a>
                 </div>
                 <div class="category-card">
-                    <div class="category-icon"><i class="fas fa-gem"></i></div>
+                    <div class="category-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
                     <h3>Accessories</h3>
                     <a href="shop.html?category=accessories">Shop Now →</a>
                 </div>
@@ -96,7 +160,20 @@
                 <h2>Featured Products</h2>
                 <p>Hand-picked just for you</p>
             </div>
-            <div class="products-grid" id="featured-products"></div>
+            <div class="products-grid" id="featured-products">
+                <!-- Products loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer Banner - Creative Touch -->
+    <section style="padding: 3rem 0; background: linear-gradient(135deg, #667eea, #764ba2); color: white; text-align: center;">
+        <div class="container">
+            <h2 style="margin-bottom: 1rem;">✨ Crafted with Creativity ✨</h2>
+            <p style="font-size: 1.1rem;">This modern e-commerce experience is brought to you by <strong>Duba Dida Orobo</strong></p>
+            <div style="margin-top: 1.5rem;">
+                <a href="contact.html" class="btn btn-outline" style="border-color: white; color: white;">Let's Work Together →</a>
+            </div>
         </div>
     </section>
 
@@ -114,18 +191,7 @@
             </div>
         </div>
     </section>
-<!-- Creative Developer Banner -->
-<section style="padding: 3rem 0; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-align: center;">
-    <div class="container">
-        <h2 style="margin-bottom: 1rem;">✨ Crafted with Creativity ✨</h2>
-        <p style="font-size: 1.1rem; margin-bottom: 1rem;">This modern e-commerce experience is brought to you by</p>
-        <h3 style="font-size: 2rem;">Duba Dida Orobo</h3>
-        <p style="margin-top: 1rem;">Full-Stack Developer | Creative Technologist | Innovation Seeker</p>
-        <div style="margin-top: 2rem;">
-            <a href="about.html" class="btn btn-outline" style="border-color: white; color: white;">Learn More About the Creator →</a>
-        </div>
-    </div>
-</section>
+
     <div id="footer-placeholder"></div>
 
     <script src="assets/js/main.js"></script>
