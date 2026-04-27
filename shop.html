@@ -3,42 +3,459 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop - ModernStore</title>
+    <title>Shop - Duba E-Commerce</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Shop Page Additional Styles */
+        .shop-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 3rem 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .shop-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Search Bar Styles */
+        .search-section {
+            background: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 70px;
+            z-index: 99;
+        }
+        
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .search-input-wrapper {
+            flex: 1;
+            position: relative;
+        }
+        
+        .search-input-wrapper i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid var(--light-gray);
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+        }
+        
+        .search-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+        
+        /* Category Tabs */
+        .category-tabs {
+            background: white;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        
+        .tabs-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .category-tab {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: var(--light);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            color: var(--dark);
+        }
+        
+        .category-tab:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .category-tab.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+        
+        /* Filter Bar */
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .results-count {
+            color: var(--gray);
+        }
+        
+        .sort-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: var(--radius);
+            background: white;
+            cursor: pointer;
+        }
+        
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 4rem;
+            background: var(--light);
+            border-radius: var(--radius-lg);
+        }
+        
+        .no-results i {
+            font-size: 4rem;
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        /* Active Filters */
+        .active-filters {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .filter-tag {
+            background: var(--light);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .filter-tag button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .filter-tag button:hover {
+            color: var(--error);
+        }
+    </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
-    <section class="page-header" style="padding:3rem 0;background:#f8fafc">
-        <div class="container"><h1>Our Collection</h1><div class="breadcrumb"><a href="index.html">Home</a> / <span>Shop</span></div></div>
+
+    <!-- Shop Header -->
+    <div class="shop-header">
+        <div class="container">
+            <h1>🛍️ Our Collection</h1>
+            <p>Discover the best in modern electronics and fashion</p>
+        </div>
+    </div>
+
+    <!-- Search Bar Section -->
+    <div class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search for products... (iPhone, MacBook, T-Shirt, etc.)">
+                </div>
+                <button class="search-btn" id="searchBtn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="category-tabs">
+        <div class="container">
+            <div class="tabs-container">
+                <button class="category-tab active" data-category="all">📱 All Products</button>
+                <button class="category-tab" data-category="electronics">💻 Electronics</button>
+                <button class="category-tab" data-category="clothing">👕 Modern Clothing</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Shop Section -->
+    <section class="shop-section">
+        <div class="container">
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <div class="results-count" id="resultsCount">Showing 0 products</div>
+                <select id="sortSelect" class="sort-select">
+                    <option value="default">Sort by: Featured</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="rating">Rating: High to Low</option>
+                    <option value="name">Name: A to Z</option>
+                </select>
+            </div>
+
+            <!-- Active Filters Display -->
+            <div class="active-filters" id="activeFilters"></div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="all-products">
+                <!-- Products loaded dynamically -->
+            </div>
+        </div>
     </section>
-    <section class="shop-section"><div class="container"><div class="shop-layout" style="display:grid;grid-template-columns:280px 1fr;gap:2rem;margin:3rem 0">
-        <aside class="shop-sidebar" style="background:#f8fafc;padding:1.5rem;border-radius:1rem;height:fit-content;position:sticky;top:80px">
-            <div class="filter-group"><h3>Categories</h3><div class="filter-options"><label><input type="checkbox" value="men"> Men</label><label><input type="checkbox" value="women"> Women</label><label><input type="checkbox" value="shoes"> Shoes</label></div></div>
-        </aside>
-        <div class="shop-products"><div class="shop-toolbar" style="display:flex;justify-content:space-between;margin-bottom:2rem"><p id="product-count">Showing 0 products</p><select id="sort-by"><option value="default">Sort by: Featured</option><option value="price-low">Price: Low to High</option><option value="price-high">Price: High to Low</option></select></div><div class="products-grid" id="all-products"></div></div>
-    </div></div></section>
+
     <div id="footer-placeholder"></div>
+
     <script src="assets/js/main.js"></script>
     <script src="assets/js/product.js"></script>
     <script src="assets/js/cart.js"></script>
+    
     <script>
-        if(document.getElementById('sort-by')) {
-            document.getElementById('sort-by').addEventListener('change', function() {
-                let products = JSON.parse(localStorage.getItem('products') || '[]');
-                if(this.value === 'price-low') products.sort((a,b)=>a.price-b.price);
-                if(this.value === 'price-high') products.sort((a,b)=>b.price-a.price);
-                displayProducts(products);
-            });
+        // Shop Page Functionality
+        let currentCategory = 'all';
+        let currentSearchTerm = '';
+        let currentSort = 'default';
+        
+        // Get all products
+        function getAllProducts() {
+            return JSON.parse(localStorage.getItem('products') || '[]');
         }
-        const checkboxes = document.querySelectorAll('.filter-options input');
-        checkboxes.forEach(cb => cb.addEventListener('change', function() {
-            let products = JSON.parse(localStorage.getItem('products') || '[]');
-            const selected = Array.from(document.querySelectorAll('.filter-options input:checked')).map(c => c.value);
-            if(selected.length) products = products.filter(p => selected.includes(p.category));
-            displayProducts(products);
-        }));
+        
+        // Filter products by category and search
+        function filterProducts() {
+            let products = getAllProducts();
+            
+            // Filter by category
+            if (currentCategory !== 'all') {
+                products = products.filter(p => p.category === currentCategory);
+            }
+            
+            // Filter by search term
+            if (currentSearchTerm.trim() !== '') {
+                const term = currentSearchTerm.toLowerCase();
+                products = products.filter(p => 
+                    p.name.toLowerCase().includes(term) || 
+                    p.description.toLowerCase().includes(term)
+                );
+            }
+            
+            // Sort products
+            if (currentSort === 'price-low') {
+                products.sort((a, b) => a.price - b.price);
+            } else if (currentSort === 'price-high') {
+                products.sort((a, b) => b.price - a.price);
+            } else if (currentSort === 'rating') {
+                products.sort((a, b) => b.rating - a.rating);
+            } else if (currentSort === 'name') {
+                products.sort((a, b) => a.name.localeCompare(b.name));
+            }
+            
+            return products;
+        }
+        
+        // Display filtered products
+        function displayFilteredProducts() {
+            const products = filterProducts();
+            const grid = document.getElementById('all-products');
+            const resultsCount = document.getElementById('resultsCount');
+            
+            if (!grid) return;
+            
+            if (products.length === 0) {
+                grid.innerHTML = `
+                    <div class="no-results" style="grid-column: 1/-1;">
+                        <i class="fas fa-search"></i>
+                        <h3>No products found</h3>
+                        <p>Try adjusting your search or filter to find what you're looking for.</p>
+                        <button onclick="resetFilters()" class="btn btn-primary" style="margin-top: 1rem;">Reset Filters</button>
+                    </div>
+                `;
+                if (resultsCount) resultsCount.textContent = 'Showing 0 products';
+                return;
+            }
+            
+            grid.innerHTML = products.map(p => `
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="${p.image}" alt="${p.name}">
+                        ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
+                        <div class="product-actions">
+                            <button class="action-btn" onclick="event.stopPropagation(); goToProduct(${p.id})"><i class="fas fa-eye"></i></button>
+                            <button class="action-btn" onclick="event.stopPropagation(); addToCart(${p.id})"><i class="fas fa-shopping-cart"></i></button>
+                            <button class="action-btn" onclick="event.stopPropagation(); addToWishlist(${p.id})"><i class="far fa-heart"></i></button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${p.name}</h3>
+                        <div class="product-rating">
+                            <div class="stars">${getStarRating(p.rating)}</div>
+                            <span>(${p.reviews})</span>
+                        </div>
+                        <div class="product-price">$${p.price.toFixed(2)}</div>
+                    </div>
+                </div>
+            `).join('');
+            
+            if (resultsCount) {
+                resultsCount.textContent = `Showing ${products.length} products`;
+            }
+            
+            // Update active filters display
+            updateActiveFilters();
+        }
+        
+        // Update active filters display
+        function updateActiveFilters() {
+            const container = document.getElementById('activeFilters');
+            if (!container) return;
+            
+            let filters = [];
+            
+            if (currentCategory !== 'all') {
+                filters.push(`
+                    <div class="filter-tag">
+                        Category: ${currentCategory === 'electronics' ? '📱 Electronics' : '👕 Clothing'}
+                        <button onclick="setCategory('all')">✕</button>
+                    </div>
+                `);
+            }
+            
+            if (currentSearchTerm.trim() !== '') {
+                filters.push(`
+                    <div class="filter-tag">
+                        Search: "${currentSearchTerm}"
+                        <button onclick="clearSearch()">✕</button>
+                    </div>
+                `);
+            }
+            
+            container.innerHTML = filters.join('');
+        }
+        
+        // Set category
+        function setCategory(category) {
+            currentCategory = category;
+            // Update active tab UI
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                if (tab.dataset.category === category) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+            displayFilteredProducts();
+        }
+        
+        // Clear search
+        function clearSearch() {
+            currentSearchTerm = '';
+            document.getElementById('searchInput').value = '';
+            displayFilteredProducts();
+        }
+        
+        // Reset all filters
+        function resetFilters() {
+            currentCategory = 'all';
+            currentSearchTerm = '';
+            currentSort = 'default';
+            document.getElementById('searchInput').value = '';
+            document.getElementById('sortSelect').value = 'default';
+            
+            // Update active tab UI
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                if (tab.dataset.category === 'all') {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+            
+            displayFilteredProducts();
+        }
+        
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            displayFilteredProducts();
+            
+            // Category tabs
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.addEventListener('click', function() {
+                    currentCategory = this.dataset.category;
+                    setCategory(currentCategory);
+                });
+            });
+            
+            // Search button
+            document.getElementById('searchBtn')?.addEventListener('click', function() {
+                currentSearchTerm = document.getElementById('searchInput').value;
+                displayFilteredProducts();
+            });
+            
+            // Search input - enter key
+            document.getElementById('searchInput')?.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    currentSearchTerm = this.value;
+                    displayFilteredProducts();
+                }
+            });
+            
+            // Sort select
+            document.getElementById('sortSelect')?.addEventListener('change', function() {
+                currentSort = this.value;
+                displayFilteredProducts();
+            });
+        });
+        
+        // Make functions global for inline calls
+        window.setCategory = setCategory;
+        window.clearSearch = clearSearch;
+        window.resetFilters = resetFilters;
+        window.goToProduct = goToProduct;
+        window.addToCart = addToCart;
+        window.addToWishlist = addToWishlist;
+        window.getStarRating = getStarRating;
     </script>
 </body>
 </html>
