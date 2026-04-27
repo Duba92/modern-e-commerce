@@ -3,17 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cart - ModernStore</title>
+    <title>Shopping Cart - DubaiStore</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .cart-header-page {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 3rem 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .cart-header-page h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cart-header-page p {
+            opacity: 0.9;
+        }
+    </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
-    <section class="page-header" style="padding:3rem 0;background:#f8fafc"><div class="container"><h1>Shopping Cart</h1><div class="breadcrumb"><a href="index.html">Home</a> / <span>Cart</span></div></div></section>
-    <section class="cart-section"><div class="container"><div class="cart-layout"><div class="cart-items" id="cart-items-container"></div><div class="cart-summary"><h3>Order Summary</h3><div class="summary-row" style="display:flex;justify-content:space-between;margin:1rem 0"><span>Subtotal:</span><span id="subtotal">$0.00</span></div><div class="summary-row" style="display:flex;justify-content:space-between;margin:1rem 0"><span>Shipping:</span><span id="shipping">$0.00</span></div><div class="summary-row total" style="display:flex;justify-content:space-between;margin:1rem 0;font-weight:bold;border-top:1px solid #e2e8f0;padding-top:1rem"><span>Total:</span><span id="total">$0.00</span></div><button class="btn btn-primary" id="checkout-btn" style="width:100%">Proceed to Checkout</button><a href="shop.html" class="btn btn-outline" style="width:100%;text-align:center;display:block;margin-top:1rem">Continue Shopping</a></div></div></div></section>
+
+    <div class="cart-header-page">
+        <div class="container">
+            <h1>🛒 Your Shopping Cart</h1>
+            <p>Review your items before checkout</p>
+        </div>
+    </div>
+
+    <section class="cart-section">
+        <div class="container">
+            <div class="cart-layout">
+                <div class="cart-items" id="cart-items-container">
+                    <div class="empty-cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <p>Your cart is empty</p>
+                        <a href="shop.html" class="btn btn-primary">Continue Shopping</a>
+                    </div>
+                </div>
+                
+                <div class="cart-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span id="shipping">$0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                    <button class="btn btn-primary" id="checkout-btn" style="width:100%">
+                        Proceed to Checkout
+                    </button>
+                    <a href="shop.html" class="btn btn-outline" style="width:100%; text-align:center; display:block; margin-top:1rem">
+                        Continue Shopping
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div id="footer-placeholder"></div>
+    <div id="bottom-nav-placeholder"></div>
+
     <script src="assets/js/main.js"></script>
     <script src="assets/js/cart.js"></script>
+    
+    <script>
+        // Load bottom navigation
+        fetch('partials/bottom-nav.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('bottom-nav-placeholder').innerHTML = data;
+            })
+            .catch(err => console.log('Bottom nav not found'));
+        
+        // Initialize cart display
+        if (typeof displayCartItems === 'function') {
+            displayCartItems();
+        }
+    </script>
 </body>
 </html>
