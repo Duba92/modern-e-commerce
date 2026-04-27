@@ -3,17 +3,306 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - ModernStore</title>
+    <title>Contact - Duba Dida | Web Developer</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Developer Promotion Styles */
+        .hero-promo {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            padding: 4rem 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-promo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        .promo-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .developer-card {
+            background: white;
+            border-radius: 2rem;
+            padding: 2.5rem;
+            margin: -3rem auto 3rem;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+            position: relative;
+            z-index: 10;
+        }
+        .developer-name {
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .service-item {
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+        .service-item i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+        .contact-info-modern {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 1rem;
+            transition: all 0.3s ease;
+        }
+        .contact-item:hover {
+            background: linear-gradient(135deg, #667eea15, #764ba215);
+            transform: translateX(10px);
+        }
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+        }
+        .promo-message {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 2rem;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .pricing-card {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: white;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            margin-top: 2rem;
+        }
+        .btn-glow {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        .btn-glow:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        }
+    </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
-    <section class="page-header" style="padding:3rem 0;background:#f8fafc"><div class="container"><h1>Contact Us</h1><div class="breadcrumb"><a href="index.html">Home</a> / <span>Contact</span></div></div></section>
-    <section class="contact-section"><div class="container"><div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin:4rem 0"><div><h2>Get in Touch</h2><p style="margin:1rem 0">Have questions? We'd love to hear from you.</p><div style="margin:2rem 0"><div style="margin:1rem 0"><i class="fas fa-map-marker-alt"></i> 123 Fashion Ave, New York, NY 10001</div><div style="margin:1rem 0"><i class="fas fa-phone"></i> +1 (555) 123-4567</div><div style="margin:1rem 0"><i class="fas fa-envelope"></i> hello@modernstore.com</div></div></div><div><form id="contact-form"><input type="text" placeholder="Your Name" required style="width:100%;padding:0.75rem;margin:0.5rem 0;border:1px solid #e2e8f0;border-radius:0.5rem"><input type="email" placeholder="Your Email" required style="width:100%;padding:0.75rem;margin:0.5rem 0;border:1px solid #e2e8f0;border-radius:0.5rem"><textarea rows="5" placeholder="Your Message" required style="width:100%;padding:0.75rem;margin:0.5rem 0;border:1px solid #e2e8f0;border-radius:0.5rem"></textarea><button type="submit" class="btn btn-primary">Send Message</button></form></div></div></div></section>
+
+    <!-- Hero Promotion Section -->
+    <section class="hero-promo">
+        <div class="container">
+            <div class="promo-badge">
+                <i class="fas fa-code"></i> Available for Work
+            </div>
+            <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">🚀 Let's Build Something Amazing!</h1>
+            <p style="font-size: 1.3rem; max-width: 600px; margin: 0 auto;">
+                I turn ideas into powerful digital experiences
+            </p>
+        </div>
+    </section>
+
+    <!-- Developer Promotion Card -->
+    <div class="container">
+        <div class="developer-card">
+            <i class="fas fa-laptop-code" style="font-size: 3rem; color: #667eea;"></i>
+            <div class="developer-name">Duba Dida Orobo</div>
+            <p style="font-size: 1.1rem; color: #666;">Full-Stack Web Developer | Creative Technologist</p>
+            
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-globe" style="color: #667eea;"></i>
+                    <h3>Modern Websites</h3>
+                    <p>Responsive & Fast</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-shopping-cart" style="color: #ec4899;"></i>
+                    <h3>E-Commerce</h3>
+                    <p>Online Stores</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-mobile-alt" style="color: #10b981;"></i>
+                    <h3>Mobile Ready</h3>
+                    <p>Perfect on any device</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-rocket" style="color: #f59e0b;"></i>
+                    <h3>SEO Optimized</h3>
+                    <p>Get found online</p>
+                </div>
+            </div>
+
+            <div class="promo-message">
+                <i class="fas fa-quote-left" style="font-size: 2rem; color: #f59e0b;"></i>
+                <p style="font-size: 1.2rem; margin: 1rem 0; font-style: italic;">
+                    "I don't just build websites — I create digital experiences that drive results. 
+                    Whether you need a stunning portfolio, a powerful e-commerce store, or a custom web application, 
+                    I'm here to bring your vision to life!"
+                </p>
+                <i class="fas fa-quote-right" style="font-size: 2rem; color: #f59e0b;"></i>
+            </div>
+
+            <!-- Contact Information -->
+            <h3><i class="fas fa-address-card"></i> Let's Connect!</h3>
+            <div class="contact-info-modern">
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div>
+                        <strong style="font-size: 1.1rem;">📞 Call / WhatsApp</strong><br>
+                        <a href="tel:+251992932031" style="color: #667eea; text-decoration: none; font-size: 1.2rem;">0992932031</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <strong style="font-size: 1.1rem;">✉️ Email</strong><br>
+                        <a href="mailto:dubadida90@gmail.com" style="color: #667eea; text-decoration: none; font-size: 1.1rem;">dubadida90@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon"><i class="fab fa-telegram"></i></div>
+                    <div>
+                        <strong style="font-size: 1.1rem;">💬 Telegram</strong><br>
+                        <a href="https://t.me/duba9293" target="_blank" style="color: #667eea; text-decoration: none; font-size: 1.1rem;">@duba9293</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing & Services -->
+            <div class="pricing-card">
+                <h3><i class="fas fa-star-of-life"></i> What I Offer</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                    <div>
+                        <i class="fas fa-code" style="color: #667eea;"></i>
+                        <p><strong>Custom Websites</strong><br>$300+</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-store" style="color: #ec4899;"></i>
+                        <p><strong>E-Commerce</strong><br>$500+</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-mobile" style="color: #10b981;"></i>
+                        <p><strong>Responsive Design</strong><br>$200+</p>
+                    </div>
+                    <div>
+                        <i class="fas fa-chart-line" style="color: #f59e0b;"></i>
+                        <p><strong>SEO Optimization</strong><br>$150+</p>
+                    </div>
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
+                    *Prices negotiable based on project requirements
+                </p>
+            </div>
+
+            <!-- Quick Contact Form -->
+            <form id="quick-contact-form" style="margin-top: 2rem;">
+                <h3><i class="fas fa-paper-plane"></i> Send Me a Message</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
+                    <input type="text" placeholder="Your Name" required style="padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 0.5rem;">
+                    <input type="email" placeholder="Your Email" required style="padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 0.5rem;">
+                </div>
+                <textarea rows="4" placeholder="Tell me about your project..." required style="width: 100%; padding: 0.75rem; margin-top: 1rem; border: 1px solid #e2e8f0; border-radius: 0.5rem;"></textarea>
+                <button type="submit" class="btn-glow" style="margin-top: 1rem; width: 100%;">
+                    <i class="fas fa-paper-plane"></i> Send Message — I'll Reply Within 24hrs!
+                </button>
+            </form>
+
+            <!-- Social Links -->
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e2e8f0;">
+                <p style="margin-bottom: 1rem;">Follow me for web development tips & creative content:</p>
+                <div style="display: flex; justify-content: center; gap: 1.5rem;">
+                    <a href="#" style="background: #333; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i class="fab fa-github"></i></a>
+                    <a href="#" style="background: #0077b5; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" style="background: #1da1f2; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="background: linear-gradient(135deg, #f093fb, #f5576c); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action Banner -->
+    <section style="padding: 4rem 0; background: linear-gradient(135deg, #0f172a, #1e293b); color: white; text-align: center; margin-top: 2rem;">
+        <div class="container">
+            <h2 style="font-size: 2rem;">💼 Ready to Start Your Project?</h2>
+            <p style="margin: 1rem 0; font-size: 1.1rem;">Let's create something extraordinary together!</p>
+            <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
+                <a href="tel:+251992932031" class="btn btn-primary" style="background: white; color: #0f172a;">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+                <a href="https://t.me/duba9293" target="_blank" class="btn btn-outline" style="border-color: white; color: white;">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+            </div>
+        </div>
+    </section>
+
     <div id="footer-placeholder"></div>
     <script src="assets/js/main.js"></script>
-    <script>document.getElementById('contact-form')?.addEventListener('submit', function(e) { e.preventDefault(); alert('Thank you for your message!'); this.reset(); });</script>
+    <script>
+        // Handle contact form submission
+        document.getElementById('quick-contact-form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = this.querySelector('input[placeholder="Your Name"]').value;
+            alert(`Thank you ${name}! 🙌\n\nI've received your message and will contact you within 24 hours.\n\nYou can also reach me directly on Telegram: @duba9293\n\nLet's build something amazing! 🚀`);
+            this.reset();
+        });
+    </script>
 </body>
 </html>
