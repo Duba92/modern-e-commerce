@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DubaiStore - Modern Electronics & Fashion</title>
+    <title>market- Modern Electronics & Fashion</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -11,16 +11,15 @@
 <body>
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section - NO GAPS -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <span class="hero-badge">🔥 Summer Tech Sale 2025 🔥</span>
                 <h1>Upgrade Your Lifestyle</h1>
-                <p>Discover the latest in modern electronics and contemporary fashion. Premium quality, unbeatable prices.</p>
+                <p>Discover the latest in modern electronics and contemporary fashion.</p>
                 <div class="hero-buttons">
                     <a href="shop.html" class="btn btn-primary">Shop Now</a>
-                    <a href="about.html" class="btn btn-outline">Explore Collection</a>
+                    <a href="about.html" class="btn btn-outline">Explore</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -29,149 +28,42 @@
         </div>
     </section>
 
-    <!-- Features Section -->
     <section class="features">
         <div class="container">
             <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-truck-fast"></i>
-                    <h3>Free Shipping</h3>
-                    <p>On orders over $50</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-rotate-left"></i>
-                    <h3>30-Day Returns</h3>
-                    <p>Easy returns policy</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-lock"></i>
-                    <h3>Secure Payment</h3>
-                    <p>100% secure transactions</p>
-                </div>
-                <div class="feature-card">
-                    <i class="fas fa-headset"></i>
-                    <h3>24/7 Support</h3>
-                    <p>Dedicated customer service</p>
-                </div>
+                <div class="feature-card"><i class="fas fa-truck-fast"></i><h3>Free Shipping</h3><p>On orders over $50</p></div>
+                <div class="feature-card"><i class="fas fa-rotate-left"></i><h3>30-Day Returns</h3><p>Easy returns</p></div>
+                <div class="feature-card"><i class="fas fa-lock"></i><h3>Secure Payment</h3><p>100% secure</p></div>
+                <div class="feature-card"><i class="fas fa-headset"></i><h3>24/7 Support</h3><p>Dedicated service</p></div>
             </div>
         </div>
     </section>
 
-    <!-- Categories Section -->
     <section class="categories">
         <div class="container">
-            <div class="section-header">
-                <h2>Shop by Category</h2>
-                <p>Find the latest tech and modern fashion</p>
-            </div>
+            <div class="section-header"><h2>Shop by Category</h2><p>Find what you need</p></div>
             <div class="categories-grid">
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>Smartphones</h3>
-                    <p>iPhone, Samsung, Google</p>
-                    <a href="shop.html?category=electronics">Shop Now →</a>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <h3>Laptops</h3>
-                    <p>MacBook, MSI, Gaming</p>
-                    <a href="shop.html?category=electronics">Shop Now →</a>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-headphones"></i>
-                    </div>
-                    <h3>Audio</h3>
-                    <p>Sony, AirPods, Speakers</p>
-                    <a href="shop.html?category=electronics">Shop Now →</a>
-                </div>
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-tshirt"></i>
-                    </div>
-                    <h3>Clothing</h3>
-                    <p>T-Shirts, Jackets, Hoodies</p>
-                    <a href="shop.html?category=clothing">Shop Now →</a>
-                </div>
+                <div class="category-card"><div class="category-icon"><i class="fas fa-mobile-alt"></i></div><h3>Smartphones</h3><a href="shop.html">Shop →</a></div>
+                <div class="category-card"><div class="category-icon"><i class="fas fa-laptop"></i></div><h3>Laptops</h3><a href="shop.html">Shop →</a></div>
+                <div class="category-card"><div class="category-icon"><i class="fas fa-headphones"></i></div><h3>Audio</h3><a href="shop.html">Shop →</a></div>
+                <div class="category-card"><div class="category-icon"><i class="fas fa-tshirt"></i></div><h3>Clothing</h3><a href="shop.html">Shop →</a></div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Products Section -->
     <section class="products-section">
         <div class="container">
-            <div class="section-header">
-                <h2>✨ Featured Products</h2>
-                <p>Hand-picked just for you - The best of tech and fashion</p>
-            </div>
-            <div class="products-grid" id="featured-products">
-                <!-- Products loaded via JavaScript -->
-            </div>
+            <div class="section-header"><h2>✨ Featured Products</h2><p>Best of tech and fashion</p></div>
+            <div class="products-grid" id="featured-products"></div>
         </div>
     </section>
 
-    <!-- Electronics Spotlight Banner -->
-    <section class="banner-dark">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
-                <div>
-                    <span style="background: rgba(255,255,255,0.2); padding: 0.25rem 1rem; border-radius: 50px; font-size: 0.75rem;">Limited Time Offer</span>
-                    <h2 style="font-size: 2rem; margin: 1rem 0;">Next-Gen Technology</h2>
-                    <p style="margin-bottom: 1.5rem; opacity: 0.9;">Experience the future with our curated collection of premium electronics.</p>
-                    <a href="shop.html?category=electronics" class="btn btn-primary" style="background: white; color: #1e293b;">Shop Electronics →</a>
-                </div>
-                <div style="display: flex; gap: 1.5rem; justify-content: center;">
-                    <i class="fas fa-microchip" style="font-size: 3rem;"></i>
-                    <i class="fas fa-bolt" style="font-size: 3rem;"></i>
-                    <i class="fas fa-wifi" style="font-size: 3rem;"></i>
-                    <i class="fas fa-bluetooth" style="font-size: 3rem;"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Fashion Spotlight Banner -->
-    <section class="banner-light">
-        <div class="container">
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
-                <div>
-                    <span style="background: linear-gradient(135deg, #ec4899, #f093fb); padding: 0.25rem 1rem; border-radius: 50px; font-size: 0.75rem; color: white;">New Collection</span>
-                    <h2 style="font-size: 2rem; margin: 1rem 0;">Modern Streetwear</h2>
-                    <p style="margin-bottom: 1.5rem;">Elevate your style with our modern clothing line. Sustainable and comfortable.</p>
-                    <a href="shop.html?category=clothing" class="btn btn-primary">Shop Fashion →</a>
-                </div>
-                <div style="display: flex; gap: 1.5rem; justify-content: center;">
-                    <i class="fas fa-tshirt" style="font-size: 3rem; color: #667eea;"></i>
-                    <i class="fas fa-hat-cowboy" style="font-size: 3rem; color: #ec4899;"></i>
-                    <i class="fas fa-shoe-prints" style="font-size: 3rem; color: #10b981;"></i>
-                    <i class="fas fa-gem" style="font-size: 3rem; color: #f59e0b;"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Developer Banner -->
-    <section class="dev-banner">
-        <div class="container">
-            <h2 style="margin-bottom: 1rem;">✨ Crafted with Creativity ✨</h2>
-            <p style="font-size: 1rem;">This modern e-commerce experience is brought to you by <strong>Duba Dida Orobo</strong></p>
-            <div style="margin-top: 1.5rem;">
-                <a href="contact.html" class="btn btn-outline" style="border-color: white; color: white;">Let's Work Together →</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
     <section class="newsletter">
         <div class="container">
             <div class="newsletter-content">
                 <i class="fas fa-envelope"></i>
-                <h2>Subscribe to Our Newsletter</h2>
-                <p>Get 10% off your first purchase and exclusive tech deals!</p>
+                <h2>Subscribe</h2>
+                <p>Get 10% off your first purchase</p>
                 <form class="newsletter-form" id="newsletter-form">
                     <input type="email" placeholder="Enter your email" required>
                     <button type="submit" class="btn btn-primary">Subscribe</button>
@@ -181,20 +73,24 @@
     </section>
 
     <div id="footer-placeholder"></div>
+    <div id="bottom-nav-placeholder"></div>
 
     <script src="assets/js/main.js"></script>
     <script src="assets/js/product.js"></script>
     <script src="assets/js/cart.js"></script>
     
     <script>
-        // Newsletter form handler
+        fetch('partials/bottom-nav.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('bottom-nav-placeholder').innerHTML = data;
+            })
+            .catch(err => console.log('Bottom nav not found'));
+        
         document.getElementById('newsletter-form')?.addEventListener('submit', function(e) {
             e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
-            if(email) {
-                alert('🎉 Thank you for subscribing! Check your email for 10% off your first purchase.');
-                this.reset();
-            }
+            alert('🎉 Thank you for subscribing!');
+            this.reset();
         });
     </script>
 </body>
