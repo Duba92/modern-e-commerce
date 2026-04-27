@@ -679,3 +679,25 @@ body {
         padding: 0 1rem;
     }
 }
+/* Banner Sections */
+.banner-dark {
+    background: linear-gradient(135deg, #1e293b, #0f172a);
+    padding: 3rem 0;
+    color: white;
+}
+
+.banner-light {
+    background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+    padding: 3rem 0;
+}
+
+.dev-banner {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 3rem 0;
+    color: white;
+    text-align: center;
+}
+
+.products-section {
+    padding: 4rem 0;
+}
