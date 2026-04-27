@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - ModernStore</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <section class="page-header" style="padding:3rem 0;background:#f8fafc">
+        <div class="container"><h1>Our Collection</h1><div class="breadcrumb"><a href="index.html">Home</a> / <span>Shop</span></div></div>
+    </section>
+    <section class="shop-section"><div class="container"><div class="shop-layout" style="display:grid;grid-template-columns:280px 1fr;gap:2rem;margin:3rem 0">
+        <aside class="shop-sidebar" style="background:#f8fafc;padding:1.5rem;border-radius:1rem;height:fit-content;position:sticky;top:80px">
+            <div class="filter-group"><h3>Categories</h3><div class="filter-options"><label><input type="checkbox" value="men"> Men</label><label><input type="checkbox" value="women"> Women</label><label><input type="checkbox" value="shoes"> Shoes</label></div></div>
+        </aside>
+        <div class="shop-products"><div class="shop-toolbar" style="display:flex;justify-content:space-between;margin-bottom:2rem"><p id="product-count">Showing 0 products</p><select id="sort-by"><option value="default">Sort by: Featured</option><option value="price-low">Price: Low to High</option><option value="price-high">Price: High to Low</option></select></div><div class="products-grid" id="all-products"></div></div>
+    </div></div></section>
+    <div id="footer-placeholder"></div>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/product.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script>
+        if(document.getElementById('sort-by')) {
+            document.getElementById('sort-by').addEventListener('change', function() {
+                let products = JSON.parse(localStorage.getItem('products') || '[]');
+                if(this.value === 'price-low') products.sort((a,b)=>a.price-b.price);
+                if(this.value === 'price-high') products.sort((a,b)=>b.price-a.price);
+                displayProducts(products);
+            });
+        }
+        const checkboxes = document.querySelectorAll('.filter-options input');
+        checkboxes.forEach(cb => cb.addEventListener('change', function() {
+            let products = JSON.parse(localStorage.getItem('products') || '[]');
+            const selected = Array.from(document.querySelectorAll('.filter-options input:checked')).map(c => c.value);
+            if(selected.length) products = products.filter(p => selected.includes(p.category));
+            displayProducts(products);
+        }));
+    </script>
+</body>
+</html>
