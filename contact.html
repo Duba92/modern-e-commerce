@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - ModernStore</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <section class="page-header" style="padding:3rem 0;background:#f8fafc"><div class="container"><h1>Contact Us</h1><div class="breadcrumb"><a href="index.html">Home</a> / <span>Contact</span></div></div></section>
+    <section class="contact-section"><div class="container"><div class="contact-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin:4rem 0"><div><h2>Get in Touch</h2><p style="margin:1rem 0">Have questions? We'd love to hear from you.</p><div style="margin:2rem 0"><div style="margin:1rem 0"><i class="fas fa-map-marker-alt"></i> 123 Fashion Ave, New York, NY 10001</div><div style="margin:1rem 0"><i class="fas fa-phone"></i> +1 (555) 123-4567</div><div style="margin:1rem 0"><i class="fas fa-envelope"></i> hello@modernstore.com</div></div></div><div><form id="contact-form"><input type="text" placeholder="Your Name" required style="width:100%;padding:0.75rem;margin:0.5rem 0;border:1px solid #e2e8f0;border-radius:0.5rem"><input type="email" placeholder="Your Email" required style="width:100%;padding:0.75rem;margin:0.5rem 0;border:1px solid #e2e8f0;border-radius:0.5rem"><textarea rows="5" placeholder="Your Message" required style="width:100%;padding:0.75rem;margin:0.5rem 0;border:1px solid #e2e8f0;border-radius:0.5rem"></textarea><button type="submit" class="btn btn-primary">Send Message</button></form></div></div></div></section>
+    <div id="footer-placeholder"></div>
+    <script src="assets/js/main.js"></script>
+    <script>document.getElementById('contact-form')?.addEventListener('submit', function(e) { e.preventDefault(); alert('Thank you for your message!'); this.reset(); });</script>
+</body>
+</html>
