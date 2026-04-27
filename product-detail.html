@@ -3,39 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details - ModernStore</title>
+    <title>Product Details - DubaiStore</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        .product-detail-section {
+            padding: 3rem 0;
+        }
+        
+        .product-detail-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        .product-gallery {
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .product-gallery img {
+            max-width: 100%;
+            border-radius: 1rem;
+        }
+        
+        .product-info-detail h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-price-detail {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #6366f1;
+            margin: 1rem 0;
+        }
+        
+        .product-badge-detail {
+            display: inline-block;
+            background: linear-gradient(135deg, #6366f1, #ec4899);
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-description {
+            color: #475569;
+            line-height: 1.6;
+            margin: 1rem 0;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .quantity-controls button {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            cursor: pointer;
+            border-radius: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .quantity-controls input {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+        }
+        
+        .product-actions-detail {
+            display: flex;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .meta-items {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+            color: #64748b;
+        }
+        
+        @media (max-width: 768px) {
+            .product-detail-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
-    <section class="product-detail"><div class="container"><div class="product-detail-layout" style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin:3rem 0"><div class="product-gallery"><div class="main-image" style="background:#f8fafc;border-radius:1rem;padding:2rem;text-align:center"><img src="" id="product-img" style="max-width:100%"></div></div><div class="product-info"><div class="product-badge" id="product-badge" style="display:inline-block;background:#6366f1;color:white;padding:0.25rem 1rem;border-radius:2rem;font-size:0.875rem">New Arrival</div><h1 id="product-title" style="margin:1rem 0">Product Name</h1><div class="product-rating" style="display:flex;align-items:center;gap:0.5rem"><div class="stars" id="product-stars"></div><span id="product-reviews">(0 reviews)</span></div><div class="product-price" id="product-price" style="font-size:2rem;color:#6366f1;margin:1rem 0">$0.00</div><div class="product-description" id="product-description" style="margin:1rem 0"></div><div class="product-options"><div class="quantity-selector" style="margin:1rem 0"><label>Quantity:</label><div class="quantity-controls" style="display:flex;gap:0.5rem;margin-top:0.5rem"><button id="qty-minus" style="width:40px;height:40px;border:1px solid #e2e8f0;background:white;cursor:pointer">-</button><input type="number" id="quantity" value="1" min="1" style="width:60px;text-align:center;border:1px solid #e2e8f0"><button id="qty-plus" style="width:40px;height:40px;border:1px solid #e2e8f0;background:white;cursor:pointer">+</button></div></div></div><div class="product-actions" style="display:flex;gap:1rem;margin:2rem 0"><button class="btn btn-primary" id="add-to-cart">Add to Cart</button><button class="btn btn-outline" id="add-to-wishlist"><i class="far fa-heart"></i> Wishlist</button></div></div></div></div></section>
+
+    <section class="product-detail-section">
+        <div class="container">
+            <div class="product-detail-layout">
+                <div class="product-gallery">
+                    <img src="" alt="Product Image" id="product-img">
+                </div>
+                
+                <div class="product-info-detail">
+                    <div class="product-badge-detail" id="product-badge">New Arrival</div>
+                    <h1 id="product-title">Product Name</h1>
+                    <div class="product-rating">
+                        <div class="stars" id="product-stars"></div>
+                        <span id="product-reviews">(0 reviews)</span>
+                    </div>
+                    <div class="product-price-detail" id="product-price">$0.00</div>
+                    <div class="product-description" id="product-description"></div>
+                    
+                    <div class="quantity-selector">
+                        <label><strong>Quantity:</strong></label>
+                        <div class="quantity-controls">
+                            <button id="qty-minus">-</button>
+                            <input type="number" id="quantity" value="1" min="1">
+                            <button id="qty-plus">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="product-actions-detail">
+                        <button class="btn btn-primary" id="add-to-cart">Add to Cart</button>
+                        <button class="btn btn-outline" id="add-to-wishlist">
+                            <i class="far fa-heart"></i> Wishlist
+                        </button>
+                    </div>
+                    
+                    <div class="meta-items">
+                        <div class="meta-item">
+                            <i class="fas fa-truck"></i>
+                            <span>Free shipping on orders over $50</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-undo"></i>
+                            <span>30-day easy returns</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure payment</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div id="footer-placeholder"></div>
+    <div id="bottom-nav-placeholder"></div>
+
     <script src="assets/js/main.js"></script>
     <script src="assets/js/product.js"></script>
     <script src="assets/js/cart.js"></script>
+    
     <script>
+        // Load bottom navigation
+        fetch('partials/bottom-nav.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('bottom-nav-placeholder').innerHTML = data;
+            })
+            .catch(err => console.log('Bottom nav not found'));
+        
+        // Product detail functionality
         const urlParams = new URLSearchParams(window.location.search);
         const productId = parseInt(urlParams.get('id'));
-        if(productId) {
+        
+        if (productId) {
             const products = JSON.parse(localStorage.getItem('products') || '[]');
             const product = products.find(p => p.id === productId);
-            if(product) {
+            
+            if (product) {
                 document.getElementById('product-title').textContent = product.name;
                 document.getElementById('product-price').textContent = `$${product.price.toFixed(2)}`;
                 document.getElementById('product-description').textContent = product.description;
                 document.getElementById('product-img').src = product.image;
                 document.getElementById('product-stars').innerHTML = getStarRating(product.rating);
                 document.getElementById('product-reviews').textContent = `(${product.reviews} reviews)`;
-                if(product.badge) document.getElementById('product-badge').textContent = product.badge;
+                if (product.badge) {
+                    document.getElementById('product-badge').textContent = product.badge;
+                }
                 window.currentProduct = product;
             }
         }
-        document.getElementById('add-to-cart')?.addEventListener('click', function() { if(window.currentProduct) addToCart(window.currentProduct.id); });
-        document.getElementById('add-to-wishlist')?.addEventListener('click', function() { if(window.currentProduct) addToWishlist(window.currentProduct.id); });
-        document.getElementById('qty-plus')?.addEventListener('click', function() { const qty = document.getElementById('quantity'); qty.value = parseInt(qty.value) + 1; });
-        document.getElementById('qty-minus')?.addEventListener('click', function() { const qty = document.getElementById('quantity'); if(parseInt(qty.value) > 1) qty.value = parseInt(qty.value) - 1; });
+        
+        // Add to cart button
+        document.getElementById('add-to-cart')?.addEventListener('click', function() {
+            if (window.currentProduct) {
+                const quantity = parseInt(document.getElementById('quantity')?.value || 1);
+                for (let i = 0; i < quantity; i++) {
+                    addToCart(window.currentProduct.id);
+                }
+            }
+        });
+        
+        // Add to wishlist button
+        document.getElementById('add-to-wishlist')?.addEventListener('click', function() {
+            if (window.currentProduct) {
+                addToWishlist(window.currentProduct.id);
+            }
+        });
+        
+        // Quantity controls
+        document.getElementById('qty-plus')?.addEventListener('click', function() {
+            const qtyInput = document.getElementById('quantity');
+            qtyInput.value = parseInt(qtyInput.value) + 1;
+        });
+        
+        document.getElementById('qty-minus')?.addEventListener('click', function() {
+            const qtyInput = document.getElementById('quantity');
+            if (parseInt(qtyInput.value) > 1) {
+                qtyInput.value = parseInt(qtyInput.value) - 1;
+            }
+        });
     </script>
 </body>
 </html>
