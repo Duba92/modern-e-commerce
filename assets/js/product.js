@@ -2,12 +2,12 @@ function displayFeaturedProducts() {
     const grid = document.getElementById('featured-products');
     if(!grid) return;
     const products = JSON.parse(localStorage.getItem('products') || '[]');
-    const featured = products.slice(0, 4);
+    const featured = products.slice(0, 8);
     
     grid.innerHTML = featured.map(p => `
         <div class="product-card" onclick="goToProduct(${p.id})">
             <div class="product-image">
-                <img src="${p.image}" alt="${p.name}" style="width:100%; height:100%; object-fit:cover;">
+                <img src="${p.image}" alt="${p.name}">
                 ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
             </div>
             <div class="product-info">
@@ -33,9 +33,9 @@ function displayProducts(productsToShow = null) {
     }
     
     grid.innerHTML = products.map(p => `
-        <div class="product-card" data-product-id="${p.id}">
+        <div class="product-card">
             <div class="product-image">
-                <img src="${p.image}" alt="${p.name}" style="width:100%; height:100%; object-fit:cover;">
+                <img src="${p.image}" alt="${p.name}">
                 ${p.badge ? `<span class="product-badge">${p.badge}</span>` : ''}
                 <div class="product-actions">
                     <button class="action-btn" onclick="event.stopPropagation(); goToProduct(${p.id})"><i class="fas fa-eye"></i></button>
@@ -63,10 +63,16 @@ function goToProduct(id) {
     window.location.href = `product-detail.html?id=${id}`; 
 }
 
-// Initialize page-specific functions
-if(document.getElementById('featured-products')) {
-    displayFeaturedProducts();
+function addToWishlist(productId) {
+    let wishlist = JSON.parse(localStorage.getItem('wishlist') || '[]');
+    if(!wishlist.includes(productId)) {
+        wishlist.push(productId);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        showNotification('Added to wishlist! ❤️');
+    } else {
+        showNotification('Already in wishlist!');
+    }
 }
-if(document.getElementById('all-products')) {
-    displayProducts();
-}
+
+if(document.getElementById('featured-products')) displayFeaturedProducts();
+if(document.getElementById('all-products')) displayProducts();
