@@ -22,6 +22,7 @@
             box-shadow: 0 25px 45px rgba(0,0,0,0.2);
             animation: floatImage 3s ease-in-out infinite;
             transition: transform 0.3s ease;
+            object-fit: cover;
         }
         
         .hero-image img:hover {
@@ -38,22 +39,6 @@
             position: relative;
         }
         
-        /* Optional: Add a subtle glow effect */
-        .hero-image img {
-            position: relative;
-        }
-        
-        .hero-image img::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            box-shadow: 0 0 50px rgba(102,126,234,0.4);
-            border-radius: 2rem;
-        }
-        
         @media (max-width: 768px) {
             .hero-image img {
                 max-width: 280px;
@@ -64,7 +49,7 @@
 <body>
     <div id="header-placeholder"></div>
 
-    <!-- Hero Section with Your Gemini Image -->
+    <!-- Hero Section with Your New Photo -->
     <section class="hero">
         <div class="hero-content">
             <span class="hero-badge">Summer 2025 Collection</span>
@@ -77,10 +62,10 @@
         </div>
         <div class="hero-image">
             <div class="hero-placeholder">
-                <!-- Your Gemini Generated Image -->
-                <img src="Gemini_Generated_Image_4yl0cf4yl0cf4yl0.png" 
+                <!-- Your New Photo -->
+                <img src="IMG_20260427_133050_431.jpg" 
                      alt="Dubai E-Commerce Web Development" 
-                     onerror="this.src='https://placehold.co/500x500/667eea/white?text=Modern+E-Commerce'">
+                     onerror="this.src='https://placehold.co/500x500/667eea/white?text=Dubai+E-Commerce'">
             </div>
         </div>
     </section>
@@ -166,7 +151,7 @@
         </div>
     </section>
 
-    <!-- Developer Banner - Creative Touch -->
+    <!-- Developer Banner -->
     <section style="padding: 3rem 0; background: linear-gradient(135deg, #667eea, #764ba2); color: white; text-align: center;">
         <div class="container">
             <h2 style="margin-bottom: 1rem;">✨ Crafted with Creativity ✨</h2>
