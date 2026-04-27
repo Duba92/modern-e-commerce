@@ -1,4 +1,4 @@
-// Product Database - Modern Electronics & Modern Clothing
+// Product Database - Modern Electronics & Modern Clothing with WORKING IMAGES
 const products = [
     // ========== MODERN ELECTRONICS ==========
     { 
@@ -8,7 +8,7 @@ const products = [
         category: "electronics", 
         rating: 4.9, 
         reviews: 3421, 
-        image: "https://images.unsplash.com/photo-1696446701796-612f10ffced4?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/667eea/white?text=iPhone+15+Pro+Max", 
         badge: "Hot Sale", 
         description: "Latest A17 Pro chip, titanium design, 48MP camera with 5x optical zoom." 
     },
@@ -19,7 +19,7 @@ const products = [
         category: "electronics", 
         rating: 4.9, 
         reviews: 2156, 
-        image: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/764ba2/white?text=MacBook+Pro+M3", 
         badge: "New Arrival", 
         description: "M3 chip with 8-core CPU, 10-core GPU, 14-inch Liquid Retina XDR display." 
     },
@@ -30,7 +30,7 @@ const products = [
         category: "electronics", 
         rating: 4.8, 
         reviews: 1876, 
-        image: "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/6366f1/white?text=Galaxy+S24+Ultra", 
         badge: "Best Seller", 
         description: "200MP camera, built-in S Pen, titanium frame, AI-powered features." 
     },
@@ -41,7 +41,7 @@ const products = [
         category: "electronics", 
         rating: 4.8, 
         reviews: 943, 
-        image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/ec4899/white?text=Apple+Watch+Ultra", 
         badge: "Premium", 
         description: "49mm titanium case, 100m water resistance, precision GPS." 
     },
@@ -52,7 +52,7 @@ const products = [
         category: "electronics", 
         rating: 4.9, 
         reviews: 2876, 
-        image: "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/10b981/white?text=Sony+Headphones", 
         badge: "Trending", 
         description: "Industry-leading noise cancellation, 30-hour battery life, premium sound." 
     },
@@ -63,7 +63,7 @@ const products = [
         category: "electronics", 
         rating: 4.8, 
         reviews: 1543, 
-        image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/f59e0b/white?text=iPad+Pro", 
         badge: "M2 Chip", 
         description: "M2 chip, Liquid Retina XDR display, Apple Pencil hover support." 
     },
@@ -74,7 +74,7 @@ const products = [
         category: "electronics", 
         rating: 4.7, 
         reviews: 876, 
-        image: "https://images.unsplash.com/photo-1558317374-067fb5f30001?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/ef4444/white?text=Dyson+V15", 
         badge: "Smart Vacuum", 
         description: "Intelligent laser dust detection, powerful suction, real-time particle count." 
     },
@@ -85,7 +85,7 @@ const products = [
         category: "electronics", 
         rating: 4.8, 
         reviews: 1234, 
-        image: "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/3b82f6/white?text=Samsung+QLED+TV", 
         badge: "Smart TV", 
         description: "65-inch 4K QLED, 120Hz, Quantum HDR, built-in Alexa." 
     },
@@ -96,7 +96,7 @@ const products = [
         category: "electronics", 
         rating: 4.7, 
         reviews: 987, 
-        image: "https://images.unsplash.com/photo-1592899677977-9e10ca58899d?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/06b6d4/white?text=Google+Pixel+8", 
         badge: "AI Powered", 
         description: "Tensor G3 chip, pro-level camera, 7 years of updates." 
     },
@@ -107,7 +107,7 @@ const products = [
         category: "electronics", 
         rating: 4.9, 
         reviews: 5432, 
-        image: "https://images.unsplash.com/photo-1606741965424-06f05a3d6862?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/8b5cf6/white?text=AirPods+Pro", 
         badge: "Best Audio", 
         description: "H2 chip, 2x noise cancellation, personalized spatial audio." 
     },
@@ -118,7 +118,7 @@ const products = [
         category: "electronics", 
         rating: 4.8, 
         reviews: 765, 
-        image: "https://images.unsplash.com/photo-1593642702821-c8da6771f06c?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/d946ef/white?text=MSI+Gaming", 
         badge: "Gaming", 
         description: "RTX 4080, Intel i9, 240Hz display, RGB keyboard." 
     },
@@ -129,7 +129,7 @@ const products = [
         category: "electronics", 
         rating: 4.6, 
         reviews: 8765, 
-        image: "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/14b8a6/white?text=Xiaomi+Band+8", 
         badge: "Budget", 
         description: "1.62-inch AMOLED, 16-day battery, 150+ sport modes." 
     },
@@ -142,7 +142,7 @@ const products = [
         category: "clothing", 
         rating: 4.5, 
         reviews: 128, 
-        image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/f1f5f9/333333?text=White+T-Shirt", 
         badge: "Best Seller", 
         description: "Premium cotton t-shirt for everyday comfort. Soft, breathable, perfect fit." 
     },
@@ -153,7 +153,7 @@ const products = [
         category: "clothing", 
         rating: 4.8, 
         reviews: 89, 
-        image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/475569/white?text=Smart+Blazer", 
         badge: "New Style", 
         description: "Modern slim-fit blazer with smart fabric, wrinkle-resistant." 
     },
@@ -164,7 +164,7 @@ const products = [
         category: "clothing", 
         rating: 4.7, 
         reviews: 156, 
-        image: "https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/1e293b/white?text=Tech+Jacket", 
         badge: "Cyber Style", 
         description: "Water-resistant tech jacket with hidden pockets and modern design." 
     },
@@ -175,7 +175,7 @@ const products = [
         category: "clothing", 
         rating: 4.6, 
         reviews: 234, 
-        image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/64748b/white?text=Hoodie", 
         badge: "Cozy", 
         description: "Oversized hoodie, premium cotton blend, modern streetwear style." 
     },
@@ -186,7 +186,7 @@ const products = [
         category: "clothing", 
         rating: 4.7, 
         reviews: 167, 
-        image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/3b82f6/white?text=Casual+Shirt", 
         badge: "Office Ready", 
         description: "Breathable fabric, wrinkle-free, perfect for modern workplace." 
     },
@@ -197,7 +197,7 @@ const products = [
         category: "clothing", 
         rating: 4.7, 
         reviews: 298, 
-        image: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/2dd4bf/white?text=Jeans", 
         badge: "Sustainable", 
         description: "Organic cotton jeans, recycled materials, modern slim fit." 
     },
@@ -208,7 +208,7 @@ const products = [
         category: "clothing", 
         rating: 4.5, 
         reviews: 143, 
-        image: "https://images.unsplash.com/photo-1598033129183-c4f50c736f10?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/fbbf24/1e293b?text=Linen+Shirt", 
         badge: "Breathable", 
         description: "100% premium linen, lightweight, perfect for hot weather." 
     },
@@ -219,7 +219,7 @@ const products = [
         category: "clothing", 
         rating: 4.6, 
         reviews: 312, 
-        image: "https://images.unsplash.com/photo-1581655353564-df123a1eb820?w=400&h=400&fit=crop", 
+        image: "https://via.placeholder.com/400x400/22c55e/white?text=Sport+T-Shirt", 
         badge: "Active Wear", 
         description: "Moisture-wicking fabric, UV protection, 4-way stretch." 
     }
