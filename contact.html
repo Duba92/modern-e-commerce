@@ -3,304 +3,510 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Duba Dida | Web Developer</title>
+    <title>Duba Dida | Web Developer - Let's Create Magic!</title>
     <link rel="stylesheet" href="assets/css/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Developer Promotion Styles */
-        .hero-promo {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            padding: 4rem 0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
             color: white;
-            text-align: center;
-            position: relative;
+        }
+
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
             overflow: hidden;
         }
-        .hero-promo::before {
+        
+        .animated-bg::before {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
+            background: radial-gradient(circle, rgba(102,126,234,0.3) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
         }
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translate(-25%, -25%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-25%, -25%) scale(1.2); opacity: 0.8; }
         }
-        .promo-badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.3);
+
+        /* Floating Elements */
+        .floating {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: float 15s infinite linear;
         }
-        .developer-card {
-            background: white;
-            border-radius: 2rem;
-            padding: 2.5rem;
-            margin: -3rem auto 3rem;
-            max-width: 800px;
-            text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
             position: relative;
-            z-index: 10;
+            z-index: 2;
         }
-        .developer-name {
-            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+
+        /* Hero Section */
+        .hero-section {
+            text-align: center;
+            padding: 4rem 0;
+            position: relative;
+        }
+        
+        .glow-text {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fff, #667eea, #f093fb, #fff);
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin: 1rem 0;
+            animation: gradientShift 5s ease infinite;
         }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .typing-text {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+            border-right: 3px solid #667eea;
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        
+        @keyframes blink {
+            from, to { border-color: transparent; }
+            50% { border-color: #667eea; }
+        }
+
+        /* CTA Badge */
+        .cta-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.75rem 2rem;
+            border-radius: 100px;
+            margin: 1rem 0;
+            border: 1px solid rgba(255,255,255,0.3);
+            animation: bounce 2s ease infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Developer Card */
+        .developer-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 2rem;
+            padding: 3rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.2);
+        }
+        
+        /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
-        .service-item {
-            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
-            padding: 1.5rem;
-            border-radius: 1rem;
-            transition: transform 0.3s ease;
-        }
-        .service-item:hover {
-            transform: translateY(-5px);
-        }
-        .service-item i {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-        }
-        .contact-info-modern {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: #f8fafc;
-            border-radius: 1rem;
+        
+        .service-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            text-align: center;
             transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
         }
-        .contact-item:hover {
-            background: linear-gradient(135deg, #667eea15, #764ba215);
-            transform: translateX(10px);
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+            border-color: #667eea;
+            box-shadow: 0 15px 35px rgba(102,126,234,0.3);
         }
-        .contact-icon {
-            width: 50px;
-            height: 50px;
+        
+        .service-icon {
+            width: 70px;
+            height: 70px;
             background: linear-gradient(135deg, #667eea, #764ba2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 1.25rem;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
         }
-        .promo-message {
-            background: linear-gradient(135deg, #fef3c7, #fde68a);
-            padding: 2rem;
+        
+        .price-tag {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #f093fb, #f5576c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin: 1rem 0;
+        }
+        
+        /* Don't Worry Banner */
+        .dont-worry {
+            background: linear-gradient(135deg, #667eea, #764ba2);
             border-radius: 1rem;
-            margin: 2rem 0;
-            text-align: center;
-        }
-        .pricing-card {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            color: white;
             padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            animation: pulseGlow 2s ease infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(102,126,234,0.5); }
+            50% { box-shadow: 0 0 40px rgba(102,126,234,0.8); }
+        }
+        
+        /* Contact Cards */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .contact-card {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            text-decoration: none;
+            color: white;
+        }
+        
+        .contact-card:hover {
+            transform: translateX(10px);
+            background: rgba(255,255,255,0.15);
+            border-color: #667eea;
+        }
+        
+        .contact-icon-large {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        /* Form Styling */
+        .contact-form {
+            background: rgba(255,255,255,0.05);
+            backdrop-filter: blur(10px);
             border-radius: 1.5rem;
+            padding: 2rem;
             margin-top: 2rem;
         }
-        .btn-glow {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 0.5rem;
             color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             border: none;
-            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            color: white;
             font-size: 1.1rem;
             font-weight: bold;
-            border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
-        .btn-glow:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102,126,234,0.4);
+        }
+        
+        /* Motivational Quotes */
+        .quote-section {
+            text-align: center;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .glow-text { font-size: 2rem; }
+            .typing-text { font-size: 1rem; white-space: normal; }
+            .developer-card { padding: 1.5rem; }
         }
     </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
 
-    <!-- Hero Promotion Section -->
-    <section class="hero-promo">
-        <div class="container">
-            <div class="promo-badge">
-                <i class="fas fa-code"></i> Available for Work
+    <div class="animated-bg"></div>
+
+    <div class="main-container">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <div class="cta-badge">
+                <i class="fas fa-code"></i> OPEN FOR WORK | LET'S CREATE TOGETHER
             </div>
-            <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">🚀 Let's Build Something Amazing!</h1>
-            <p style="font-size: 1.3rem; max-width: 600px; margin: 0 auto;">
-                I turn ideas into powerful digital experiences
+            <h1 class="glow-text">Duba Dida Orobo</h1>
+            <div class="typing-text">Full-Stack Developer | Creative Problem Solver</div>
+            <p style="margin-top: 1.5rem; font-size: 1.1rem; opacity: 0.9;">
+                I don't just write code — I build <strong>digital experiences</strong> that inspire, convert, and leave a lasting impression.
             </p>
         </div>
-    </section>
 
-    <!-- Developer Promotion Card -->
-    <div class="container">
+        <!-- Developer Card -->
         <div class="developer-card">
-            <i class="fas fa-laptop-code" style="font-size: 3rem; color: #667eea;"></i>
-            <div class="developer-name">Duba Dida Orobo</div>
-            <p style="font-size: 1.1rem; color: #666;">Full-Stack Web Developer | Creative Technologist</p>
+            <h2 style="text-align: center; font-size: 2rem; margin-bottom: 1rem;">
+                <i class="fas fa-star-of-life" style="color: #f093fb;"></i> 
+                What I Can Do For You
+                <i class="fas fa-star-of-life" style="color: #f093fb;"></i>
+            </h2>
             
             <div class="services-grid">
-                <div class="service-item">
-                    <i class="fas fa-globe" style="color: #667eea;"></i>
-                    <h3>Modern Websites</h3>
-                    <p>Responsive & Fast</p>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Custom Websites</h3>
+                    <p>Modern, fast, and responsive websites tailored to your brand</p>
+                    <div class="price-tag">⭐⭐⭐ ETB</div>
+                    <small style="opacity: 0.7;">Value-based pricing</small>
                 </div>
-                <div class="service-item">
-                    <i class="fas fa-shopping-cart" style="color: #ec4899;"></i>
-                    <h3>E-Commerce</h3>
-                    <p>Online Stores</p>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>E-Commerce Stores</h3>
+                    <p>Sell anything, anywhere with powerful online stores</p>
+                    <div class="price-tag">⭐⭐⭐⭐ ETB</div>
+                    <small style="opacity: 0.7;">Investment-based</small>
                 </div>
-                <div class="service-item">
-                    <i class="fas fa-mobile-alt" style="color: #10b981;"></i>
-                    <h3>Mobile Ready</h3>
-                    <p>Perfect on any device</p>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Responsive Design</h3>
+                    <p>Perfect experience on phones, tablets, and desktops</p>
+                    <div class="price-tag">⭐⭐ ETB</div>
+                    <small style="opacity: 0.7;">Quality assured</small>
                 </div>
-                <div class="service-item">
-                    <i class="fas fa-rocket" style="color: #f59e0b;"></i>
-                    <h3>SEO Optimized</h3>
-                    <p>Get found online</p>
+                
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>SEO Optimization</h3>
+                    <p>Get found on Google and grow your audience</p>
+                    <div class="price-tag">⭐⭐ ETB</div>
+                    <small style="opacity: 0.7;">Results driven</small>
                 </div>
             </div>
 
-            <div class="promo-message">
-                <i class="fas fa-quote-left" style="font-size: 2rem; color: #f59e0b;"></i>
-                <p style="font-size: 1.2rem; margin: 1rem 0; font-style: italic;">
-                    "I don't just build websites — I create digital experiences that drive results. 
-                    Whether you need a stunning portfolio, a powerful e-commerce store, or a custom web application, 
-                    I'm here to bring your vision to life!"
+            <!-- DON'T WORRY BANNER -->
+            <div class="dont-worry">
+                <i class="fas fa-heart" style="font-size: 2.5rem; margin-bottom: 1rem; display: inline-block;"></i>
+                <h2 style="font-size: 1.8rem;">💝 Don't Worry About Price! 💝</h2>
+                <p style="font-size: 1.2rem; margin: 1rem 0;">
+                    Every project is unique — let's discuss your budget and create something amazing together!
                 </p>
-                <i class="fas fa-quote-right" style="font-size: 2rem; color: #f59e0b;"></i>
+                <p style="font-size: 1rem; opacity: 0.9;">
+                    <i class="fas fa-smile"></i> I believe in fair pricing that works for BOTH of us
+                </p>
+                <div style="margin-top: 1rem;">
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 50px; margin: 0 0.5rem;">
+                        🎁 Free Consultation
+                    </span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 50px; margin: 0 0.5rem;">
+                        🤝 Flexible Payment Plans
+                    </span>
+                    <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 50px; margin: 0 0.5rem;">
+                        ⭐ Quality Guarantee
+                    </span>
+                </div>
             </div>
 
-            <!-- Contact Information -->
-            <h3><i class="fas fa-address-card"></i> Let's Connect!</h3>
-            <div class="contact-info-modern">
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+            <!-- Contact Information - ATTRACTIVE CARDS -->
+            <h2 style="text-align: center; margin: 2rem 0 1rem;">
+                <i class="fas fa-address-card"></i> Let's Connect! I'm Just a Click Away
+            </h2>
+            
+            <div class="contact-cards">
+                <a href="tel:+251992932031" class="contact-card">
+                    <div class="contact-icon-large"><i class="fas fa-phone-alt"></i></div>
                     <div>
                         <strong style="font-size: 1.1rem;">📞 Call / WhatsApp</strong><br>
-                        <a href="tel:+251992932031" style="color: #667eea; text-decoration: none; font-size: 1.2rem;">0992932031</a>
+                        <span style="font-size: 1.2rem;">0992932031</span>
                     </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                </a>
+                
+                <a href="mailto:dubadida90@gmail.com" class="contact-card">
+                    <div class="contact-icon-large"><i class="fas fa-envelope"></i></div>
                     <div>
                         <strong style="font-size: 1.1rem;">✉️ Email</strong><br>
-                        <a href="mailto:dubadida90@gmail.com" style="color: #667eea; text-decoration: none; font-size: 1.1rem;">dubadida90@gmail.com</a>
+                        <span style="font-size: 1rem;">dubadida90@gmail.com</span>
                     </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon"><i class="fab fa-telegram"></i></div>
+                </a>
+                
+                <a href="https://t.me/duba9293" target="_blank" class="contact-card">
+                    <div class="contact-icon-large"><i class="fab fa-telegram"></i></div>
                     <div>
                         <strong style="font-size: 1.1rem;">💬 Telegram</strong><br>
-                        <a href="https://t.me/duba9293" target="_blank" style="color: #667eea; text-decoration: none; font-size: 1.1rem;">@duba9293</a>
+                        <span style="font-size: 1rem;">@duba9293</span>
                     </div>
+                </a>
+            </div>
+
+            <!-- Motivational Quote -->
+            <div class="quote-section">
+                <i class="fas fa-quote-left" style="font-size: 2rem; opacity: 0.5;"></i>
+                <p style="font-size: 1.3rem; margin: 1rem 0; font-style: italic;">
+                    "Your vision + my skills = Something extraordinary. <br>
+                    Don't let budget hold you back — let's talk and make it happen!"
+                </p>
+                <i class="fas fa-quote-right" style="font-size: 2rem; opacity: 0.5;"></i>
+                <div style="margin-top: 1rem;">
+                    <i class="fas fa-rocket"></i> 24hr Response Time <i class="fas fa-rocket"></i>
                 </div>
             </div>
 
-            <!-- Pricing & Services -->
-            <div class="pricing-card">
-                <h3><i class="fas fa-star-of-life"></i> What I Offer</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
-                    <div>
-                        <i class="fas fa-code" style="color: #667eea;"></i>
-                        <p><strong>Custom Websites</strong><br>$300+</p>
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">
+                    <i class="fas fa-paper-plane"></i> Tell Me About Your Project
+                </h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Full Name" required>
                     </div>
-                    <div>
-                        <i class="fas fa-store" style="color: #ec4899;"></i>
-                        <p><strong>E-Commerce</strong><br>$500+</p>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email Address" required>
                     </div>
-                    <div>
-                        <i class="fas fa-mobile" style="color: #10b981;"></i>
-                        <p><strong>Responsive Design</strong><br>$200+</p>
+                    <div class="form-group">
+                        <textarea id="message" rows="4" placeholder="Tell me about your idea, project, or anything you'd like to create..." required></textarea>
                     </div>
-                    <div>
-                        <i class="fas fa-chart-line" style="color: #f59e0b;"></i>
-                        <p><strong>SEO Optimization</strong><br>$150+</p>
-                    </div>
-                </div>
-                <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
-                    *Prices negotiable based on project requirements
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-heart"></i> Send Message — Let's Create Magic! <i class="fas fa-heart"></i>
+                    </button>
+                </form>
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">
+                    <i class="fas fa-shield-alt"></i> Your info is safe. I reply within 24 hours!
                 </p>
             </div>
 
-            <!-- Quick Contact Form -->
-            <form id="quick-contact-form" style="margin-top: 2rem;">
-                <h3><i class="fas fa-paper-plane"></i> Send Me a Message</h3>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
-                    <input type="text" placeholder="Your Name" required style="padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 0.5rem;">
-                    <input type="email" placeholder="Your Email" required style="padding: 0.75rem; border: 1px solid #e2e8f0; border-radius: 0.5rem;">
+            <!-- Social & Trust Badges -->
+            <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                <p style="margin-bottom: 1rem;">✨ Follow for Web Dev Tips & Creative Content ✨</p>
+                <div style="display: flex; justify-content: center; gap: 1rem;">
+                    <a href="#" style="background: rgba(255,255,255,0.1); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s;"><i class="fab fa-github"></i></a>
+                    <a href="#" style="background: rgba(255,255,255,0.1); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s;"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" style="background: rgba(255,255,255,0.1); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s;"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="background: rgba(255,255,255,0.1); width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.3s;"><i class="fab fa-instagram"></i></a>
                 </div>
-                <textarea rows="4" placeholder="Tell me about your project..." required style="width: 100%; padding: 0.75rem; margin-top: 1rem; border: 1px solid #e2e8f0; border-radius: 0.5rem;"></textarea>
-                <button type="submit" class="btn-glow" style="margin-top: 1rem; width: 100%;">
-                    <i class="fas fa-paper-plane"></i> Send Message — I'll Reply Within 24hrs!
-                </button>
-            </form>
+            </div>
+        </div>
 
-            <!-- Social Links -->
-            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #e2e8f0;">
-                <p style="margin-bottom: 1rem;">Follow me for web development tips & creative content:</p>
-                <div style="display: flex; justify-content: center; gap: 1.5rem;">
-                    <a href="#" style="background: #333; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i class="fab fa-github"></i></a>
-                    <a href="#" style="background: #0077b5; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" style="background: #1da1f2; color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i class="fab fa-twitter"></i></a>
-                    <a href="#" style="background: linear-gradient(135deg, #f093fb, #f5576c); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none;"><i class="fab fa-instagram"></i></a>
-                </div>
+        <!-- Final Call to Action -->
+        <div style="text-align: center; padding: 3rem 0;">
+            <h3>💬 Have a Question? Just Ask!</h3>
+            <p style="margin: 1rem 0;">I'm always excited to hear about new projects and creative ideas.</p>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="tel:+251992932031" style="background: #25D366; color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Me
+                </a>
+                <a href="https://t.me/duba9293" target="_blank" style="background: #0088cc; color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i class="fab fa-telegram"></i> Telegram
+                </a>
+                <a href="mailto:dubadida90@gmail.com" style="background: #EA4335; color: white; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-envelope"></i> Email
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- Call to Action Banner -->
-    <section style="padding: 4rem 0; background: linear-gradient(135deg, #0f172a, #1e293b); color: white; text-align: center; margin-top: 2rem;">
-        <div class="container">
-            <h2 style="font-size: 2rem;">💼 Ready to Start Your Project?</h2>
-            <p style="margin: 1rem 0; font-size: 1.1rem;">Let's create something extraordinary together!</p>
-            <div style="display: flex; justify-content: center; gap: 1rem; margin-top: 2rem;">
-                <a href="tel:+251992932031" class="btn btn-primary" style="background: white; color: #0f172a;">
-                    <i class="fas fa-phone"></i> Call Now
-                </a>
-                <a href="https://t.me/duba9293" target="_blank" class="btn btn-outline" style="border-color: white; color: white;">
-                    <i class="fab fa-telegram"></i> Telegram
-                </a>
-            </div>
-        </div>
-    </section>
-
     <div id="footer-placeholder"></div>
+
     <script src="assets/js/main.js"></script>
     <script>
-        // Handle contact form submission
-        document.getElementById('quick-contact-form')?.addEventListener('submit', function(e) {
+        // Form submission handler
+        document.getElementById('contactForm')?.addEventListener('submit', function(e) {
             e.preventDefault();
-            const name = this.querySelector('input[placeholder="Your Name"]').value;
-            alert(`Thank you ${name}! 🙌\n\nI've received your message and will contact you within 24 hours.\n\nYou can also reach me directly on Telegram: @duba9293\n\nLet's build something amazing! 🚀`);
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            
+            // Create WhatsApp message
+            const whatsappMsg = `Hi Duba! My name is ${name}.%0A%0AMessage: ${encodeURIComponent(message)}%0A%0AI'm interested in working with you!`;
+            const telegramMsg = `Hi Duba! My name is ${name}.%0A%0AMessage: ${message}%0A%0AI'm interested in your services!`;
+            
+            alert(`✨ Thank you ${name}! ✨\n\nI've received your message and will contact you within 24 hours.\n\nYou can also reach me directly:\n📞 +251 99 293 2031\n💬 Telegram: @duba9293\n\nLet's create something amazing together! 🚀`);
+            
             this.reset();
         });
     </script>
