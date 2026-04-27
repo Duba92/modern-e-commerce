@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        /* Shop Page Additional Styles */
         .shop-header {
             background: linear-gradient(135deg, #667eea, #764ba2);
             padding: 3rem 0;
@@ -21,7 +20,6 @@
             margin-bottom: 1rem;
         }
         
-        /* Search Bar Styles */
         .search-section {
             background: white;
             padding: 2rem 0;
@@ -48,13 +46,13 @@
             left: 1rem;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--gray);
+            color: #64748b;
         }
         
         .search-input {
             width: 100%;
             padding: 1rem 1rem 1rem 3rem;
-            border: 2px solid var(--light-gray);
+            border: 2px solid #e2e8f0;
             border-radius: 50px;
             font-size: 1rem;
             transition: all 0.3s ease;
@@ -62,12 +60,11 @@
         
         .search-input:focus {
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+            border-color: #6366f1;
         }
         
         .search-btn {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #6366f1, #ec4899);
             color: white;
             border: none;
             padding: 0 2rem;
@@ -79,14 +76,13 @@
         
         .search-btn:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow);
+            box-shadow: 0 5px 15px rgba(99,102,241,0.3);
         }
         
-        /* Category Tabs */
         .category-tabs {
             background: white;
             padding: 1rem 0;
-            border-bottom: 1px solid var(--light-gray);
+            border-bottom: 1px solid #e2e8f0;
         }
         
         .tabs-container {
@@ -99,26 +95,24 @@
         .category-tab {
             padding: 0.75rem 1.5rem;
             border: none;
-            background: var(--light);
+            background: #f8fafc;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
             font-weight: 500;
-            color: var(--dark);
+            color: #1e293b;
         }
         
         .category-tab:hover {
-            background: var(--primary);
+            background: #6366f1;
             color: white;
-            transform: translateY(-2px);
         }
         
         .category-tab.active {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #6366f1, #ec4899);
             color: white;
         }
         
-        /* Filter Bar */
         .filter-bar {
             display: flex;
             justify-content: space-between;
@@ -129,32 +123,30 @@
         }
         
         .results-count {
-            color: var(--gray);
+            color: #64748b;
         }
         
         .sort-select {
             padding: 0.5rem 1rem;
-            border: 1px solid var(--light-gray);
-            border-radius: var(--radius);
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
             background: white;
             cursor: pointer;
         }
         
-        /* No Results */
         .no-results {
             text-align: center;
             padding: 4rem;
-            background: var(--light);
-            border-radius: var(--radius-lg);
+            background: #f8fafc;
+            border-radius: 1rem;
         }
         
         .no-results i {
             font-size: 4rem;
-            color: var(--gray);
+            color: #64748b;
             margin-bottom: 1rem;
         }
         
-        /* Active Filters */
         .active-filters {
             display: flex;
             gap: 0.5rem;
@@ -163,7 +155,7 @@
         }
         
         .filter-tag {
-            background: var(--light);
+            background: #f8fafc;
             padding: 0.25rem 0.75rem;
             border-radius: 50px;
             font-size: 0.875rem;
@@ -176,18 +168,17 @@
             background: none;
             border: none;
             cursor: pointer;
-            color: var(--gray);
+            color: #64748b;
         }
         
         .filter-tag button:hover {
-            color: var(--error);
+            color: #ef4444;
         }
     </style>
 </head>
 <body>
     <div id="header-placeholder"></div>
 
-    <!-- Shop Header -->
     <div class="shop-header">
         <div class="container">
             <h1>🛍️ Our Collection</h1>
@@ -195,7 +186,6 @@
         </div>
     </div>
 
-    <!-- Search Bar Section -->
     <div class="search-section">
         <div class="container">
             <div class="search-container">
@@ -210,7 +200,6 @@
         </div>
     </div>
 
-    <!-- Category Tabs -->
     <div class="category-tabs">
         <div class="container">
             <div class="tabs-container">
@@ -221,10 +210,8 @@
         </div>
     </div>
 
-    <!-- Main Shop Section -->
     <section class="shop-section">
         <div class="container">
-            <!-- Filter Bar -->
             <div class="filter-bar">
                 <div class="results-count" id="resultsCount">Showing 0 products</div>
                 <select id="sortSelect" class="sort-select">
@@ -236,17 +223,14 @@
                 </select>
             </div>
 
-            <!-- Active Filters Display -->
             <div class="active-filters" id="activeFilters"></div>
 
-            <!-- Products Grid -->
-            <div class="products-grid" id="all-products">
-                <!-- Products loaded dynamically -->
-            </div>
+            <div class="products-grid" id="all-products"></div>
         </div>
     </section>
 
     <div id="footer-placeholder"></div>
+    <div id="bottom-nav-placeholder"></div>
 
     <script src="assets/js/main.js"></script>
     <script src="assets/js/product.js"></script>
@@ -258,21 +242,17 @@
         let currentSearchTerm = '';
         let currentSort = 'default';
         
-        // Get all products
         function getAllProducts() {
             return JSON.parse(localStorage.getItem('products') || '[]');
         }
         
-        // Filter products by category and search
         function filterProducts() {
             let products = getAllProducts();
             
-            // Filter by category
             if (currentCategory !== 'all') {
                 products = products.filter(p => p.category === currentCategory);
             }
             
-            // Filter by search term
             if (currentSearchTerm.trim() !== '') {
                 const term = currentSearchTerm.toLowerCase();
                 products = products.filter(p => 
@@ -281,7 +261,6 @@
                 );
             }
             
-            // Sort products
             if (currentSort === 'price-low') {
                 products.sort((a, b) => a.price - b.price);
             } else if (currentSort === 'price-high') {
@@ -295,7 +274,6 @@
             return products;
         }
         
-        // Display filtered products
         function displayFilteredProducts() {
             const products = filterProducts();
             const grid = document.getElementById('all-products');
@@ -342,11 +320,9 @@
                 resultsCount.textContent = `Showing ${products.length} products`;
             }
             
-            // Update active filters display
             updateActiveFilters();
         }
         
-        // Update active filters display
         function updateActiveFilters() {
             const container = document.getElementById('activeFilters');
             if (!container) return;
@@ -374,10 +350,8 @@
             container.innerHTML = filters.join('');
         }
         
-        // Set category
         function setCategory(category) {
             currentCategory = category;
-            // Update active tab UI
             document.querySelectorAll('.category-tab').forEach(tab => {
                 if (tab.dataset.category === category) {
                     tab.classList.add('active');
@@ -388,14 +362,12 @@
             displayFilteredProducts();
         }
         
-        // Clear search
         function clearSearch() {
             currentSearchTerm = '';
             document.getElementById('searchInput').value = '';
             displayFilteredProducts();
         }
         
-        // Reset all filters
         function resetFilters() {
             currentCategory = 'all';
             currentSearchTerm = '';
@@ -403,7 +375,6 @@
             document.getElementById('searchInput').value = '';
             document.getElementById('sortSelect').value = 'default';
             
-            // Update active tab UI
             document.querySelectorAll('.category-tab').forEach(tab => {
                 if (tab.dataset.category === 'all') {
                     tab.classList.add('active');
@@ -415,11 +386,18 @@
             displayFilteredProducts();
         }
         
+        // Load bottom navigation
+        fetch('partials/bottom-nav.html')
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById('bottom-nav-placeholder').innerHTML = data;
+            })
+            .catch(err => console.log('Bottom nav not found'));
+        
         // Event Listeners
         document.addEventListener('DOMContentLoaded', function() {
             displayFilteredProducts();
             
-            // Category tabs
             document.querySelectorAll('.category-tab').forEach(tab => {
                 tab.addEventListener('click', function() {
                     currentCategory = this.dataset.category;
@@ -427,13 +405,11 @@
                 });
             });
             
-            // Search button
             document.getElementById('searchBtn')?.addEventListener('click', function() {
                 currentSearchTerm = document.getElementById('searchInput').value;
                 displayFilteredProducts();
             });
             
-            // Search input - enter key
             document.getElementById('searchInput')?.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
                     currentSearchTerm = this.value;
@@ -441,14 +417,13 @@
                 }
             });
             
-            // Sort select
             document.getElementById('sortSelect')?.addEventListener('change', function() {
                 currentSort = this.value;
                 displayFilteredProducts();
             });
         });
         
-        // Make functions global for inline calls
+        // Make functions global
         window.setCategory = setCategory;
         window.clearSearch = clearSearch;
         window.resetFilters = resetFilters;
