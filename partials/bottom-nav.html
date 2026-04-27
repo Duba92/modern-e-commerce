@@ -1,0 +1,149 @@
+<nav class="bottom-nav">
+    <a href="index.html" class="nav-item">
+        <div class="nav-icon">
+            <i class="fas fa-home"></i>
+        </div>
+        <span class="nav-label">Home</span>
+    </a>
+    <a href="shop.html" class="nav-item">
+        <div class="nav-icon">
+            <i class="fas fa-search"></i>
+        </div>
+        <span class="nav-label">Shop</span>
+    </a>
+    <a href="about.html" class="nav-item">
+        <div class="nav-icon">
+            <i class="fas fa-heart"></i>
+        </div>
+        <span class="nav-label">About</span>
+    </a>
+    <a href="contact.html" class="nav-item">
+        <div class="nav-icon">
+            <i class="fas fa-headset"></i>
+        </div>
+        <span class="nav-label">Contact</span>
+    </a>
+</nav>
+
+<style>
+    .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0.75rem 1rem 1rem;
+        box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: #64748b;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .nav-icon {
+        position: relative;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-icon i {
+        font-size: 1.25rem;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-label {
+        font-size: 0.7rem;
+        margin-top: 0.25rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .nav-item:hover {
+        color: #6366f1;
+    }
+    
+    .nav-item:hover .nav-icon {
+        background: linear-gradient(135deg, #6366f115, #ec489915);
+        transform: translateY(-5px);
+    }
+    
+    .nav-item:hover .nav-icon i {
+        transform: scale(1.1);
+    }
+    
+    .nav-item.active {
+        color: #6366f1;
+    }
+    
+    .nav-item.active .nav-icon {
+        background: linear-gradient(135deg, #6366f1, #ec4899);
+        box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    }
+    
+    .nav-item.active .nav-icon i {
+        color: white;
+        transform: scale(1.05);
+    }
+    
+    .nav-item.active .nav-label {
+        color: #6366f1;
+        font-weight: 600;
+    }
+    
+    @keyframes navPop {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+    
+    .nav-item.active .nav-icon {
+        animation: navPop 0.3s ease;
+    }
+    
+    body {
+        padding-bottom: 70px;
+    }
+    
+    @media (min-width: 768px) {
+        .bottom-nav {
+            max-width: 500px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 30px 30px 0 0;
+            bottom: 0;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const navItems = document.querySelectorAll('.bottom-nav .nav-item');
+        
+        navItems.forEach(item => {
+            const href = item.getAttribute('href');
+            if (href === currentPage) {
+                item.classList.add('active');
+            } else if (currentPage === '' && href === 'index.html') {
+                item.classList.add('active');
+            }
+        });
+    });
+</script>
