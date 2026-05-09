@@ -14,22 +14,21 @@
             color: white;
             text-align: center;
         }
-        
+
         .account-header h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
         }
-        
+
         .account-card {
-            max-width: 500px;
+            max-width: 520px;
             margin: 4rem auto;
             background: white;
             border-radius: 1.5rem;
             padding: 2.5rem;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            text-align: center;
         }
-        
+
         .avatar {
             width: 100px;
             height: 100px;
@@ -40,28 +39,79 @@
             justify-content: center;
             margin: 0 auto 1.5rem;
         }
-        
+
         .avatar i {
             font-size: 3rem;
             color: white;
         }
-        
-        .account-card h2 {
-            margin-bottom: 0.5rem;
-        }
-        
-        .account-card p {
-            color: #64748b;
+
+        .account-headline {
+            text-align: center;
             margin-bottom: 1.5rem;
         }
-        
-        .contact-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 1.5rem;
+
+        .account-headline p {
+            color: #64748b;
+            margin-top: 0.35rem;
         }
-        
+
+        .auth-tabs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #f1f5f9;
+            border-radius: 999px;
+            padding: 0.3rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .auth-tab {
+            border: 0;
+            background: transparent;
+            padding: 0.6rem 0.8rem;
+            border-radius: 999px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .auth-tab.active {
+            background: white;
+            color: #0f172a;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+        }
+
+        .auth-form {
+            display: grid;
+            gap: 0.85rem;
+        }
+
+        .auth-form.hidden {
+            display: none;
+        }
+
+        .field {
+            display: grid;
+            gap: 0.3rem;
+        }
+
+        .field label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .field input {
+            border: 1px solid #cbd5e1;
+            border-radius: 0.6rem;
+            padding: 0.75rem 0.8rem;
+            font: inherit;
+        }
+
+        .field input:focus {
+            outline: 2px solid rgba(99, 102, 241, 0.25);
+            border-color: #6366f1;
+        }
+
         .demo-message {
             background: #f8fafc;
             padding: 1rem;
@@ -69,6 +119,22 @@
             margin-top: 1.5rem;
             color: #64748b;
             font-size: 0.875rem;
+            text-align: center;
+        }
+
+        .success-message {
+            display: none;
+            background: #ecfdf3;
+            border: 1px solid #86efac;
+            color: #166534;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .success-message.show {
+            display: block;
         }
     </style>
 </head>
@@ -78,7 +144,7 @@
     <div class="account-header">
         <div class="container">
             <h1>👤 My Account</h1>
-            <p>Manage your profile and orders</p>
+            <p>Sign in or create your DubaiStore account</p>
         </div>
     </div>
 
@@ -87,21 +153,49 @@
             <div class="avatar">
                 <i class="fas fa-user"></i>
             </div>
-            <h2>Welcome Guest!</h2>
-            <p>Sign in to access your account</p>
-            
-            <div class="contact-buttons">
-                <a href="contact.html" class="btn btn-primary">
-                    <i class="fas fa-envelope"></i> Contact Support
-                </a>
-                <a href="shop.html" class="btn btn-outline">
-                    <i class="fas fa-shopping-bag"></i> Start Shopping
-                </a>
+            <div class="account-headline">
+                <h2>Welcome!</h2>
+                <p>Use signup / signin below to continue.</p>
             </div>
-            
+
+            <div class="success-message" id="auth-success"></div>
+
+            <div class="auth-tabs" role="tablist" aria-label="Authentication tabs">
+                <button type="button" class="auth-tab active" data-tab="signin">Sign In</button>
+                <button type="button" class="auth-tab" data-tab="signup">Sign Up</button>
+            </div>
+
+            <form class="auth-form" id="signin-form">
+                <div class="field">
+                    <label for="signin-email">Email</label>
+                    <input id="signin-email" type="email" required placeholder="you@example.com">
+                </div>
+                <div class="field">
+                    <label for="signin-password">Password</label>
+                    <input id="signin-password" type="password" required minlength="6" placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-right-to-bracket"></i> Sign In</button>
+            </form>
+
+            <form class="auth-form hidden" id="signup-form">
+                <div class="field">
+                    <label for="signup-name">Full Name</label>
+                    <input id="signup-name" type="text" required placeholder="John Doe">
+                </div>
+                <div class="field">
+                    <label for="signup-email">Email</label>
+                    <input id="signup-email" type="email" required placeholder="you@example.com">
+                </div>
+                <div class="field">
+                    <label for="signup-password">Password</label>
+                    <input id="signup-password" type="password" required minlength="6" placeholder="At least 6 characters">
+                </div>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-user-plus"></i> Create Account</button>
+            </form>
+
             <div class="demo-message">
                 <i class="fas fa-info-circle"></i>
-                This is a demo account page. For full account features, please contact the developer.
+                Demo-only auth: details are stored in your browser localStorage.
             </div>
         </div>
     </div>
@@ -110,14 +204,62 @@
     <div id="bottom-nav-placeholder"></div>
 
     <script src="assets/js/main.js"></script>
-    
+
     <script>
         fetch('partials/bottom-nav.html')
             .then(res => res.text())
             .then(data => {
                 document.getElementById('bottom-nav-placeholder').innerHTML = data;
             })
-            .catch(err => console.log('Bottom nav not found'));
+            .catch(() => console.log('Bottom nav not found'));
+
+        const tabs = document.querySelectorAll('.auth-tab');
+        const signinForm = document.getElementById('signin-form');
+        const signupForm = document.getElementById('signup-form');
+        const successBox = document.getElementById('auth-success');
+
+        function showTab(name) {
+            tabs.forEach(tab => tab.classList.toggle('active', tab.dataset.tab === name));
+            signinForm.classList.toggle('hidden', name !== 'signin');
+            signupForm.classList.toggle('hidden', name !== 'signup');
+        }
+
+        function showSuccess(message) {
+            successBox.textContent = message;
+            successBox.classList.add('show');
+            setTimeout(() => successBox.classList.remove('show'), 2500);
+        }
+
+        tabs.forEach(tab => tab.addEventListener('click', () => showTab(tab.dataset.tab)));
+
+        signupForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const user = {
+                name: document.getElementById('signup-name').value.trim(),
+                email: document.getElementById('signup-email').value.trim(),
+                password: document.getElementById('signup-password').value
+            };
+            localStorage.setItem('demoUser', JSON.stringify(user));
+            signupForm.reset();
+            showSuccess('Signup successful! Please sign in.');
+            showTab('signin');
+            document.getElementById('signin-email').value = user.email;
+        });
+
+        signinForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const saved = JSON.parse(localStorage.getItem('demoUser') || 'null');
+            const email = document.getElementById('signin-email').value.trim();
+            const password = document.getElementById('signin-password').value;
+
+            if (!saved || saved.email !== email || saved.password !== password) {
+                showNotification('Invalid credentials. Please sign up first.');
+                return;
+            }
+
+            showSuccess(`Welcome back, ${saved.name || 'User'}!`);
+            signinForm.reset();
+        });
     </script>
 </body>
 </html>
